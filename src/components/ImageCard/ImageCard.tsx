@@ -18,7 +18,7 @@ const ImageCard: React.FC<ImageCardProps> = ({ card, setImageModal, toggleModal 
     };
 
     return (
-        <li className={h-80 ${style.card}}>
+        <li className={${style.card}}>
             <img
                 src={card.urls.raw}
                 onClick={handleClickCard}
