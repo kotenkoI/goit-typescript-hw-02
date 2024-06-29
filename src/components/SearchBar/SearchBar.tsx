@@ -13,7 +13,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ setNewQuery }) => {
         },
         onSubmit: (values, { resetForm }) => {
             if (values.query.trim() === '') {
-                toast.error(You can't send empty data!, {
+                toast.error("You can't send empty data!", {
                     position: 'top-right',
                 });
                 return;
