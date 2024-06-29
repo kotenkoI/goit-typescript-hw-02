@@ -1,23 +1,28 @@
-import {CiSearch} from "react-icons/ci";
-import {useFormik} from "formik";
+import { CiSearch } from "react-icons/ci";
+import { useFormik } from "formik";
 import toast from "react-hot-toast";
 
-const SearchBar = ({setNewQuery}) => {
+interface SearchBarProps {
+    setNewQuery: (query: string) => void;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ setNewQuery }) => {
     const formik = useFormik({
         initialValues: {
             query: ''
         },
-        onSubmit: (values, {resetForm}) => {
+        onSubmit: (values, { resetForm }) => {
             if (values.query.trim() === '') {
-                toast.error(`You can't send empty data!`, {
+                toast.error(You can't send empty data!, {
                     position: 'top-right',
                 });
-                return
+                return;
             }
             setNewQuery(values.query);
             resetForm();
         },
-    })
+    });
+
     return (
         <>
             <form onSubmit={formik.handleSubmit}
@@ -35,10 +40,10 @@ const SearchBar = ({setNewQuery}) => {
                     >
                         <CiSearch size={22} />
                     </button>
-
                 </label>
             </form>
         </>
     );
 };
-export default SearchBar
+
+export default SearchBar;
